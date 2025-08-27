@@ -17,3 +17,6 @@ class Board:
             return self.ladders[position]
         else:
             return position
+        
+    def is_winner(self, position):
+     return 1 <= position <= self.size and position == self.size   
