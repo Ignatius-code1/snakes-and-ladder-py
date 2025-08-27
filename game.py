@@ -36,3 +36,10 @@ class Game:
             self.winner = player
             return True
         return False
+    
+    def next_turn(self):
+        self.current_player_index = (self.current_player_index + 1) % len(self.players)
+
+    def play_turn(self):
+     if self.game_over:
+            return None
