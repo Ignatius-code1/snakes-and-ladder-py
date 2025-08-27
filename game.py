@@ -12,5 +12,18 @@ class Game:
     def roll_dice(self):
         return random.randint(1, 6)
 
-      def get_current_player(self):
+    def get_current_player(self):
         return self.players[self.current_player_index]  
+    
+    def move_player(self, dice_roll):
+    
+        player = self.get_current_player()
+        new_position = player.position + dice_roll
+        
+        if new_position > self.board.size:
+            return player.position
+        
+        final_position = self.board.get_new_position(new_position)
+        player.position = final_position
+        
+        return final_position
