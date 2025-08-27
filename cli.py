@@ -1,12 +1,13 @@
 
 
 from game import Game
-from .player import Player
+from player import Player
 from database.db import DataManager
 
 class CLI:
     def __init__(self):
         self.players= []
+        self.db = DataManager()
 
     def start(self):
         print("\n" + "="*40)
@@ -50,6 +51,21 @@ class CLI:
         print("\n Game starting now!")
         game = Game([Player(p.name) for p in self.players])
 
-        while not game.is_game_over():
+        while not game.game_over:
             game.play_turn()
             input("\n Press Enter to continue...")
+        
+        winner_name = game.winner.name
+        print (f"\n {winner_name} wins the game! ")
+        self.db.save_game_result(winner_name)
+
+    def view_leaderboard(self):
+        print("\n SCOREBOARD")
+        print("-" * 30)
+        results = self.db.get_leaderboard()
+
+        if not results:
+            print("No games have been played yet.")
+        else:
+            for name, wins in results:
+                print(f"{name} — {wins} wins")
