@@ -4,7 +4,7 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "game",
-            "database": "/Documents/Moringa.sd/assignments/phase-3/project /snakes-and-ladder-py/db.db"
+            "database": " \"/home/code/Documents/Moringa.sd/assignments/phase-3/project\""
         }
     ]
 }
