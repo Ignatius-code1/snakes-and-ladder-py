@@ -1,5 +1,5 @@
 class Board:
-    def _init_(self):
+    def __init__(self):
         self.size = 100
         self.snakes = {
             16: 6, 47: 26, 49: 11, 56: 53, 62: 19,
@@ -9,3 +9,11 @@ class Board:
             1: 38, 4: 14, 9: 21, 21: 42, 28: 84,
             36: 44, 51: 67, 71: 91, 80: 100
         }
+
+    def get_new_position(self, position):
+        if position in self.snakes:
+            return self.snakes[position]
+        elif position in self.ladders:
+            return self.ladders[position]
+        else:
+            return position
