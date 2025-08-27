@@ -9,4 +9,7 @@ class Game:
         self.game_over = False
         self.winner = None
 
-        
+    def roll_dice(self):
+        return random.randint(1, 6)
+    
+       
