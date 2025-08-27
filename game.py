@@ -57,3 +57,7 @@ turn_info = {
  'new_position': new_position,
  'won': won
 }  
+
+if not has_won:
+ self.next_turn()  
+       
