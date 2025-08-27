@@ -11,5 +11,6 @@ class Game:
 
     def roll_dice(self):
         return random.randint(1, 6)
-    
-       
+
+      def get_current_player(self):
+        return self.players[self.current_player_index]  
