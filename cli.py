@@ -1,8 +1,8 @@
 
 
 from game import Game
-#from .player import Player
-#from .data import DataManager
+from .player import Player
+from database.db import DataManager
 
 class CLI:
     def __init__(self):
@@ -49,3 +49,7 @@ class CLI:
     def play_game(self):
         print("\n Game starting now!")
         game = Game([Player(p.name) for p in self.players])
+
+        while not game.is_game_over():
+            game.play_turn()
+            input("\n Press Enter to continue...")
