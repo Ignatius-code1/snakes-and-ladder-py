@@ -49,4 +49,11 @@ class Game:
     old_position = player.position
     new_position = self.move_player(dice_roll)
     has_won = self.check_winner()
-    
+
+turn_info = {
+ 'player': player,
+ 'dice_roll': dice_roll,
+ 'old_position': old_position,
+ 'new_position': new_position,
+ 'won': won
+}  
