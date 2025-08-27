@@ -27,3 +27,12 @@ class Game:
         player.position = final_position
         
         return final_position
+    
+    def check_winner(self):
+
+        player = self.get_current_player()
+        if player.position >= self.board.size:
+            self.game_over = True
+            self.winner = player
+            return True
+        return False
