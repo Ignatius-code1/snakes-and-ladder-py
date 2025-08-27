@@ -43,3 +43,10 @@ class Game:
     def play_turn(self):
      if self.game_over:
             return None
+     
+    player = self.get_current_player()
+    dice_roll = self.roll_dice()
+    old_position = player.position
+    new_position = self.move_player(dice_roll)
+    has_won = self.check_winner()
+    
