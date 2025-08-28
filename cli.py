@@ -1,18 +1,16 @@
-
-
 from game import Game
 from player import Player
 from database.db import DataManager
 
 class CLI:
     def __init__(self):
-        self.players= []
+        self.players = []
         self.db = DataManager()
 
     def start(self):
         print("\n" + "="*40)
         print("Welcome to the Snakes and Ladders Game!")
-        print ("="*40)
+        print("="*40)
 
         self.setup_players()
 
@@ -52,12 +50,23 @@ class CLI:
         game = Game([Player(p.name) for p in self.players])
 
         while not game.game_over:
-            game.play_turn()
+            current_player = game.get_current_player()
+            print(f"\n{current_player.name}'s turn")
+            
+            turn_info = game.play_turn()
+            
+            if turn_info:
+                print(f"Rolled: {turn_info['dice_roll']}")
+                print(f"Moved from {turn_info['old_position']} to {turn_info['new_position']}")
+                
+                if turn_info['won']:
+                    print(f"\n🎉 {current_player.name} wins the game! 🎉")
+                    break
+            
             input("\n Press Enter to continue...")
         
-        winner_name = game.winner.name
-        print (f"\n {winner_name} wins the game! ")
-        self.db.save_game_result(winner_name)
+        if game.winner:
+            self.db.save_game_result(game.winner.name)
 
     def view_leaderboard(self):
         print("\n SCOREBOARD")
