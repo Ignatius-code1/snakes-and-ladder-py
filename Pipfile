@@ -8,6 +8,7 @@ sqlalchemy = "*"
 alembic = "*"
 python-dotenv = "*"
 psycopg = {extras = ["pool", "binary"], version = "*"}
+psycopg2-binary = "*"
 
 [dev-packages]
 

@@ -8,20 +8,7 @@ import os
 
 load_dotenv()
 
-drivername=os.getenv("drivername")
-
-db_credentials={
-    "drivername":os.getenv("drivername"),
-    "host":os.getenv("host"),
-    "username":os.getenv("username"),
-    "password":os.getenv("password"),
-    "port":os.getenv("port"),
-    "database":os.getenv("database")
-}
-
-
-
-DATABASE_URL=URL.create(**db_credentials)
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine=create_engine(DATABASE_URL,echo=False,future=True)
 
