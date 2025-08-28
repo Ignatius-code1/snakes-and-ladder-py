@@ -7,7 +7,7 @@ name = "pypi"
 sqlalchemy = "*"
 alembic = "*"
 python-dotenv = "*"
-psycopg = {extras = ["pool", "binary"], version = "*"}
+psycopg = {extras = ["binary", "pool"], version = "*"}
 
 [dev-packages]
 
