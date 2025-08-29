@@ -1,6 +1,6 @@
 from game import Game
 from player import Player
-from database.db import DataManager
+from app.db import DataManager
 
 class CLI:
     def __init__(self):
@@ -60,7 +60,7 @@ class CLI:
                 print(f"Moved from {turn_info['old_position']} to {turn_info['new_position']}")
                 
                 if turn_info['won']:
-                    print(f"\n🎉 {current_player.name} wins the game! 🎉")
+                    print(f"\n {current_player.name} wins the game! ")
                     break
             
             input("\n Press Enter to continue...")

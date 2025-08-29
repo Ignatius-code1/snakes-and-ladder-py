@@ -27,13 +27,18 @@ try:
         game_date = Column(DateTime, default=datetime.now)
     
     SQLALCHEMY_AVAILABLE = True
+    
+    engine = create_engine('sqlite:///sql/db.db')
+    SessionLocal = sessionmaker(bind=engine)
+    
 except ImportError:
     SQLALCHEMY_AVAILABLE = False
     Base = None
     Player = None
     GameHistory = None
+    engine = None
+    SessionLocal = None
 
-<<<<<<< HEAD:database/db.py
 class DataManager:
     def __init__(self):
         self.engine = None
@@ -76,17 +81,3 @@ class DataManager:
             session.close()
         except:
             pass
-=======
-
-load_dotenv()
-
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-engine=create_engine(DATABASE_URL,echo=False,future=True)
-
-
-SessionLocal=sessionmaker(bind=engine,autoflush=False,autocommit=False)
-
-#BASE
-Base=declarative_base()
->>>>>>> main:app/db.py
