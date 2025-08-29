@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 class Player:
     def __init__(self, name):
         self.name = name
@@ -17,7 +17,7 @@ class Player:
             return f"{self.name} has won the game!"
         else:
             return f"{self.name} is at position {self.position}"
-=======
+
 class Player:
     def _init_(self, name):
         self.name = name
