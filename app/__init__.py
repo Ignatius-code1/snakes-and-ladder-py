@@ -1,1 +1,1 @@
-from .db import Base,SessionLocal,engine
+# Simple app package
